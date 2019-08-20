@@ -12,6 +12,12 @@ $(document).ready(function() {
       var vowel = ["a", "e", "i", "o", "u"];
       if (vowel.includes(word[0])) {
         return word.slice(1, ) + word[0].toUpperCase() + "way";
+      } else if (!vowel.includes(word[0])) {
+        if (!(vowel.includes(word[1]))) {
+          return word.slice(2, ) + toUpperCase(word[0]) + word[1] + "ay";
+        } else {
+          return word.slice(1, ) + word[0].toUpperCase() + "ay";
+        }
       } else if (word.slice(0, 2) === "qu") {
         return word.slice(2, ) + "Quay"
       } else {
@@ -28,7 +34,11 @@ $(document).ready(function() {
       }
     });
 
-    console.log(answer);
+    answer.forEach(function(word) {
+      $(".translated").append(word + " ");
+    });
+
+    $(".translated").show();
 
   });
 });
